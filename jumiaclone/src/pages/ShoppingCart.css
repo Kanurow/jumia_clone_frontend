@@ -1,0 +1,169 @@
+.cont {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    column-gap: 25px;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.cart-length {
+    display: block;
+    text-align: left;
+}
+
+
+.product-details {
+    display: grid;
+    grid-template-columns: 120px 500px 1fr;
+    width: 900px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+}
+
+.product-img {
+    width: 100px;
+}
+
+
+.remove-btn {
+    display: flex;
+    border-color: rgb(207, 207, 230);
+    color: #f57004;
+    background-color: white;
+    padding: 5px 7px;
+    border-radius: 2px;
+    border-style: none;
+    width: 100%;
+    margin-top: 7px;
+    cursor: pointer;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+    font-size: 12px;
+
+}
+.remove-btn:hover {
+    background-color: #f57004;
+    color: rgb(245, 241, 237);
+}
+.remove-btn:active {
+    opacity: .6;
+}
+.del-icon {
+    margin-right: 10px;
+}
+.product-info {
+    text-align: left;
+    margin-left: 25px;
+    
+}
+.product-info .prod-name {
+    font-size: 24px;
+    color: black;
+}
+
+.product-info .prod-qty {
+    font-size: 14px;
+    margin-top: 5px;
+    color: rgb(68, 22, 22);
+}
+.jumia-express {
+    margin-top: 14px;
+}
+.jumia-express .jumia {
+    color: black;
+    font-weight: 900;
+}
+.jumia-express .express {
+    color: #f57004;
+    font-weight: 700;
+}
+.original-price {
+    font-weight: bold;
+}
+.prev-price-sum{
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+.prev-price-discount {
+    width: 50px;
+    padding: 4px 8px;
+    color: #f57004;
+    background-color: #dddad7;
+    font-size: 12px;
+
+}
+.quantity-input {
+    margin-top: 20px;
+
+}
+.hr {
+    color: red;
+}
+
+.cart-summary {
+    text-align: left;
+    padding-bottom: 10px;
+    border-radius: 3px;
+
+}
+
+.below-cart-summary {
+    margin-top: 5px;
+}
+
+.cart-summary-title {
+    font-weight: 700;
+    font-size: 15px;
+}
+.cart-summary-subtotal {
+    font-weight: 500;
+    font-size: 15px;
+}
+.cart-summary-note {
+    font-size: 12px;
+    color: #b98a5b;
+}
+
+
+.checkout-btn {
+    display: flex;
+    border-color: #f57004;
+    color: #ffffff;
+    background-color: #f57004;
+    padding: 5px 7px;
+    border-radius: 5px;
+    border-style: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.checkout-btn .amount {
+    margin-left: 10px;
+}
+
+.below-cart-summary {
+    border-radius: 3px;
+    text-align: left;
+}
+
+.below-cart-summary .header-text {
+    font-weight: 600;
+    font-style: oblique;
+    font-size: 17px;
+
+}
+
+.below-cart-summary .note {
+    font-size: 12px;
+    color: burlywood;
+}
+
+.container2 {
+    position: absolute;
+    left: 1060px;
+    right: 20px;
+}

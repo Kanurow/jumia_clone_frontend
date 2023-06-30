@@ -1,0 +1,200 @@
+.checkout-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    column-gap: 25px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.details-header {
+    text-align: left;
+    font-weight: 600;
+}
+.edit-address {
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 14px;
+    /* min-height: 100vh; */
+}
+.name-input,
+.mobile-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+}
+.inputBox {
+    position: relative;
+    width: 350px;
+}
+.address-box {
+    position: relative;
+    margin: 30px;
+}
+.inputBox .box {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border-color: rgb(163, 180, 175);
+    border-style: solid;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+.address-box .box {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border-color: rgb(163, 180, 175);
+    border-style: solid;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0px;
+    padding: 10px;
+    font-size: 20px;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: 0.5s;
+}
+
+.address-box span {
+    position: absolute;
+    left: 0px;
+    padding: 10px;
+    font-size: 20px;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    color: rgb(22, 23, 82);
+    transform: translateX(10px) translateY(-15px);
+    padding: 0px 5px;
+    font-size: 14px;
+    background-color: #e6dfda;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    letter-spacing: 0.25em;
+}
+
+.address-box input:valid ~ span,
+.address-box input:focus ~ span {
+    color: rgb(22, 23, 82);
+    transform: translateX(10px) translateY(-15px);
+    padding: 0px 5px;
+    font-size: 14px;
+    background-color: #e6dfda;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    letter-spacing: 0.25em;
+}
+
+.shipment {
+    margin-top: 2px;
+    width: 100%;
+}
+
+.shipment-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.shipment-header .checked {
+    color: #f78223;
+}
+
+.pickup {
+    border-color: rgb(204, 199, 193);
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 2px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+.pickup .header {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+.summary {
+    display: flex;
+    column-gap: 25px;
+}
+.summary .img {
+    background-color: aqua;
+    width: 70px;
+}
+.summary .info {
+    text-align: left;
+    padding: 20px;
+}
+
+.summary .info .title {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.summary .info .qty {
+    font-weight: 400;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 12px;
+}
+.confirm-checkout-items {
+    display: flex;
+    flex-direction: column;
+
+}
+.order-summary-header {
+    text-align: left;
+    font-weight: 700;
+    margin: 5px;
+}
+.order-summary-total .info {
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+    justify-content: space-between;
+}
+.order-summary-total .info .sum  {
+    font-weight: 700;
+}
+
+.order-summary-total .total {
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+    justify-content: space-between;
+}
+.order-summary-total .total .final-price {
+    font-weight: 900;
+}
+
+.btn {
+    border: none;
+    outline: 0;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: #f78223;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.btn:hover {
+    background-color: #e66a04;
+    color: aliceblue;
+    font-weight: 700;
+}

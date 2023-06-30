@@ -1,0 +1,58 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 30px;
+    left: 40px;
+    margin-top: 30px;
+    height: 300px;
+    background-color: rgb(235, 225, 225);
+}
+
+.sidebar-react-icon{
+    margin-left: 10px;
+}
+
+.sidebar-text{
+    margin-left: 20PX;
+}
+.sidebar-text:hover{
+    margin-left: 20PX;
+    font-weight: bold;
+}
+
+.sidebar-link {
+    height: 75px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.image-slider-section {
+    margin-left: 60px;
+    margin-top: 60px;
+
+}
+
+
+
+
+.main-section {
+    display: grid;
+    grid-template-columns: 200px 100%;
+
+}
+
+.products-display {
+    margin-top: 100px;
+}
+
+.body {
+    margin-bottom: 130px;
+}

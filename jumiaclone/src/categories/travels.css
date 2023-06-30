@@ -1,0 +1,15 @@
+.advert {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    margin: 10px 50px;
+
+    
+}
+.advert-image {
+    width: 600px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: azure;
+}

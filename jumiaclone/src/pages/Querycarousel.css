@@ -1,0 +1,80 @@
+.queryall {
+    background-color: rgb(236, 245, 245);
+    margin: 35px;
+    width: 1200px;
+    height: 250px;
+}
+.queryproduct-title {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    padding: 2px;
+    margin-left: 10px;
+}
+
+.query-discount {
+    position: absolute;
+    padding: 4px 8px;
+    color: #f57004;
+    background-color: #dddad7;
+    font-size: 13px;
+    top: 0px;
+    right: 0px;
+}
+
+.query-card {
+    box-shadow: 0 4px 8px 0 rgba(116, 114, 114, 0.2);
+    max-width: 150px;
+    /* margin: auto 1rem; */
+    text-align: center;
+    font-family: arial;
+    position: relative;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 5px;
+}
+
+.query-product--image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    padding: 15px;
+}
+
+.query-product-name {
+    font-size: 12px;
+}
+.query-price {
+    color: #2b1503;
+    font-size: 11px;
+}
+.query-original-price {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.query-price,
+.query-original-prize,
+.query-product-name {
+  display: flex;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.query-card button{
+    border: none;
+    outline: 0;
+    padding: 5px;
+    color: white;
+    background-color: #f78223;
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    font-size: 10px;
+    margin: 0px;
+}
+.query-btn:hover {
+    background-color: #c70e0e;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
