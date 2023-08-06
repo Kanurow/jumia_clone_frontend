@@ -13,13 +13,14 @@ import PhoneInput from "react-phone-number-input";
 
 import "./Auth.css";
 import 'react-phone-number-input/style.css'
+import Footer from '../layout/Footer';
 
 export default function Register() {
 
 
     let navigate = useNavigate();
     const [error, setError] = useState(null);
-    const [phone, setPhone] = useState()
+    const [phone, setPhone] = useState('');
 
     const [user, setUser] = useState({
         firstName: "",
@@ -29,13 +30,17 @@ export default function Register() {
         mobile: "",
         dateOfBirth: "",
         password: "",
-        accountBalance: "",
+        vendor: "",
+        companyName: "",
+        territory: "",
     })
-    const { firstName, lastName, username, email, mobile, dateOfBirth, password, accountBalance } = user;
+    const { firstName, lastName, username, email,  dateOfBirth, password, vendor,  companyName, territory} = user;
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
+    console.log(user);
+    console.log(phone)
 
     const onSubmit =async (e) => {
         e.preventDefault();
@@ -47,9 +52,10 @@ export default function Register() {
             mobile: phone,
             dateOfBirth,
             password,
-            accountBalance
+            vendor,
+            companyName,
+            territory
         }
-        
 
         try {
             await axios.post("http://localhost:8080/api/auth/signup", userData);
@@ -60,6 +66,7 @@ export default function Register() {
 
     }
 
+
     return (
         <div className='container'>
             <div className='row'>
@@ -67,7 +74,7 @@ export default function Register() {
                 <img className="jumia-top" src={top} alt="top" />
                 <h3>Welcome to Jumia.</h3>
                     <form onSubmit={(e)=> onSubmit(e)}>
-                        <div className='mb-3'>
+                        <div className='mb-2'>
                             <label htmlFor='firstName' className='form-label'>
                                 First Name
                             </label>
@@ -94,6 +101,7 @@ export default function Register() {
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
+                        
 
                         <div className='mb-3'>
                             <label htmlFor='Username' className='form-label'>
@@ -154,19 +162,7 @@ export default function Register() {
                         </div>
 
 
-                        <div className='mb-3'>
-                            <label htmlFor='deposit' className='form-label'>
-                                Deposit Into Account (Optional)
-                            </label>
-                            <input
-                                type={"number"}
-                                className='form-control'
-                                placeholder='Enter Initial Deposit'
-                                name='accountBalance'
-                                value={accountBalance} 
-                                onChange={(e) => onInputChange(e)}
-                            />
-                        </div>
+
 
 
 
@@ -183,6 +179,54 @@ export default function Register() {
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
+
+                        <hr className='line-vendor'></hr>
+                        <p>For Vendors</p>
+                <div className='mb-3'>
+                      <label htmlFor='Vendor' className='form-label'>
+                          Are You A Vendor? (Optional)
+                      </label>
+                      <select
+                          className='form-control'
+                          name='vendor'
+                          value={vendor}
+                          onChange={(e) => onInputChange(e)}
+                      >
+                        <option value=''>Select Category</option>
+                        <option value='YES'>YES</option>
+                        <option value='NO'>NO</option>
+                      </select>
+                  </div>
+
+                  <div className='mb-3'>
+                            <label htmlFor='companyName' className='form-label'>
+                                Company Name (Optional)
+                            </label>
+                            <input
+                                type={"text"}
+                                className='form-control'
+                                placeholder='Enter Vendor Company Name'
+                                name='companyName'
+                                value={companyName} 
+                                onChange={(e) => onInputChange(e)}
+                            />
+                </div>
+
+                <div className='mb-3'>
+                            <label htmlFor='territory' className='form-label'>
+                                Territory  (Optional)
+                            </label>
+                            <input
+                                type={"text"}
+                                className='form-control'
+                                placeholder='Enter Delivery Territory'
+                                name='territory'
+                                value={territory} 
+                                onChange={(e) => onInputChange(e)}
+                            />
+                </div>
+
+
                         <p>For further support, you may visit the Help Center or contact our customer service team.</p>
                         <button type='submit' className='execute btn btn-outline-info'>Register</button>
                         <Link className='btn btn-outline-danger mx-2' to={"/login"}>Already have an account? Sign In</Link>
@@ -193,6 +237,8 @@ export default function Register() {
 
             
             <img className="jumia-bottom" src={bottom} alt="top" />
+
+            <Footer />
         </div>
     )
 }

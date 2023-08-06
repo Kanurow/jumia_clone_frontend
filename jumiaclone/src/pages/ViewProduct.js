@@ -47,7 +47,6 @@ export default function ViewProduct() {
                 windows: 'true',
               },
             });
-            console.log(response.data)
             setProduct(response.data);
           } catch (error) {
             setError(error.message);

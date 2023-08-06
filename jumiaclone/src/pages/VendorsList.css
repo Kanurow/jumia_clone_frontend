@@ -1,0 +1,51 @@
+.vendors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 25px;
+
+    border-style: solid;
+    border-color: rgba(26, 16, 16, 0);
+    border-width: 10px;
+}
+
+.thumbnail-row {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.thumbnail {
+    width: 100%;
+}
+
+.vendor-info-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+.company-logo {
+    width: 35px;
+    border-radius: 50px;
+}
+
+.vendor-name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: left;
+}
+.vendor-company {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+}
+.vendor-territory {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+
+}

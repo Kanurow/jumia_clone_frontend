@@ -12,3 +12,10 @@
 .container {
     background-color: white;
 }
+.form-control {
+   width: 100%;
+}
+
+.line-vendor {
+    color: black;
+}

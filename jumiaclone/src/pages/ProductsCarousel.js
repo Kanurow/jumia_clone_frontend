@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './ProductCarousel.css';
 
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,11 +19,11 @@ function CartNotification({ showCartNotification }) {
   );
 }
 
-function ProductsCarousel() {
+function ProductsCarousel({ user }) {
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState([]);
   const [error, setError] = useState(null);
   const [showCartNotification, setShowCartNotification] = useState(false);
+  
 
 
   
@@ -31,17 +32,7 @@ function ProductsCarousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get(
-          'http://localhost:8080/api/users/user/me',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-              windows: 'true',
-            },
-          }
-        );
-        setUser(userResponse.data);
+
 
         const productsResponse = await axios.get(
           'http://localhost:8080/api/products/all',
@@ -62,7 +53,6 @@ function ProductsCarousel() {
     fetchData();
   }, []);
 
-  console.log(products)
 
   const addToCart = async (productId) => {
     try {
@@ -133,11 +123,16 @@ function ProductsCarousel() {
       {products.map((product) => (
     <div key={product.id} className="card">
       <span className='discount'>- {product.percentageDiscount}%</span>
-      <img
-        className="product--image"
-        src={product.imageUrl}
-        alt="product image"
-      />
+      <div>
+          <Link to={`/viewProduct/${product.id}`}>
+            <img
+              className="product--image"
+              src={product.imageUrl}
+              alt="product image"
+            />
+          </Link>
+      </div>
+      
       <h3 className='product-name'>{product.productName}</h3>
       <p className="price"> #{ product.sellingPrice}    <span className="original-prize"> #{ product.sellingPrice + product.amountDiscounted}</span></p>
 

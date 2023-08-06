@@ -53,7 +53,7 @@ function Supermarket() {
         <SupermarketCarousel />
       </div>
 
-<Footer />
+    <Footer />
     </div>
     </>
   )

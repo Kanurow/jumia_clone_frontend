@@ -97,3 +97,7 @@
     background-color: #be5b09;
     border-radius: 11px;
   }
+
+  .bold .amount {
+    font-size: 12px;
+  }

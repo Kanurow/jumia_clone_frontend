@@ -19,17 +19,66 @@ import ShoppingCart from './pages/ShoppingCart';
 import Checkout from './pages/Checkout';
 import OrderHistory from './pages/OrderHistory';
 import Appliances from './categories/Appliances';
-import DepositeIntoJumiaAccount from './pages/DepositeIntoJumiaAccount';
 import ViewProduct from './pages/ViewProduct';
 
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import ProductsCarousel from './pages/ProductsCarousel';
+import VendorsProducts from './pages/VendorsProducts';
+import VendorsList from './pages/VendorsList';
+import EditUser from './pages/EditUser';
+import VendorsOrders from './pages/VendorsOrders';
+
 function App() {
+
+  const [allProducts, setAllProducts] = useState([]);
+  const [user, setUser] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userResponse = await axios.get(
+          'http://localhost:8080/api/users/user/me',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              windows: 'true',
+            },
+          }
+        );
+        setUser(userResponse.data);
+
+        const productsResponse = await axios.get(
+          'http://localhost:8080/api/products/all',
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              windows: 'true',
+            },
+          }
+        );
+        setAllProducts(productsResponse.data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        
+        <Navbar user={user} />
         
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home allProducts={allProducts} />} />
+          <Route  element={<ProductsCarousel user={user}  />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Signin />} />
           <Route exact path="/createProduct" element={<CreateProductForm />} />
@@ -44,10 +93,13 @@ function App() {
           <Route exact path="/others" element={<OtherProducts />} />
           <Route exact path="/viewProduct/:id" element={<ViewProduct />} />
 
-          <Route exact path="/cart" element={<ShoppingCart />} />
-          <Route exact path="/checkout" element={<Checkout />} />
-          <Route exact path="/orderHistory" element={<OrderHistory />} />
-          <Route exact path="/deposite" element={<DepositeIntoJumiaAccount />} />
+          <Route exact path="/cart" element={<ShoppingCart user={user} />} />
+          <Route exact path="/checkout" element={<Checkout user={user} />} />
+          <Route exact path="/orderHistory" element={<OrderHistory user={user} />} />
+          <Route exact path="/vendorsOrders" element={<VendorsOrders />} />
+          <Route exact path='/allVendors' element={<VendorsList />} />
+          <Route exact path='/viewVendor/:id' element={<VendorsProducts />} />
+          <Route exact path="/edituser/:id" element={<EditUser />} />
 
 
         </Routes>

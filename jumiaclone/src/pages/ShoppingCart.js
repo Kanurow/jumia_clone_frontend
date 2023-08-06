@@ -9,14 +9,15 @@ import { BsRocketTakeoff } from 'react-icons/bs';
 import Footer from '../layout/Footer';
 
 function ShoppingCart() {
-  const [user, setUser] = useState([]);
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
+
         const response = await axios.get('http://localhost:8080/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
@@ -30,7 +31,6 @@ function ShoppingCart() {
         setError(error.message);
       }
     };
-
     fetchUser();
   }, []);
 
@@ -113,7 +113,7 @@ function ShoppingCart() {
 
                 {cart.map((item, index) => (
 
-                <div className='product-details'>
+                <div key={item.id} className='product-details'>
                     <div className='product-img-setion'>
                         <img className='product-img' 
                         src={item.product.imageUrl} 

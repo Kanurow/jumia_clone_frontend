@@ -27,14 +27,15 @@ function QueryCarousel({ query }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get('http://localhost:8080/api/users/user/me', {
+
+        const response = await axios.get('http://localhost:8080/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             windows: 'true',
           },
         });
-        setUser(userResponse.data);
+        setUser(response.data);
 
         const productsResponse = await axios.get('http://localhost:8080/api/products/all', {
           headers: {
@@ -136,7 +137,8 @@ function QueryCarousel({ query }) {
                 Add to Cart
               </button>
             </div>
-          ))}
+          ) 
+          )}
         </Carousel>
       </div>
 

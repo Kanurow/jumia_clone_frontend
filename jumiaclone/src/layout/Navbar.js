@@ -38,6 +38,13 @@ export default function Navbar() {
 
     fetchUser();
   }, []);
+  let isUserAdmin;
+  if (user.role == "[Role(id=2, name=ROLE_ADMIN)]") {
+    isUserAdmin = true;
+  } else {
+    isUserAdmin = false;
+  }
+  
 
   const fetchUserShoppingCart = async (userId) => {
     try {
@@ -53,7 +60,6 @@ export default function Navbar() {
       }));
 
       setCart(cartWithData);
-      console.log(cartWithData);
     } catch (error) {
       setError(error.message);
     }
@@ -94,12 +100,13 @@ export default function Navbar() {
                 <div>  <AiOutlineUser size={30} /></div>
                 <div>
                     <NavDropdown title="Account" id="basic-nav-dropdown">
-                    <NavDropdown.Item className='dropdown-item' as={Link} to="/createProduct">Create Product</NavDropdown.Item>
-                    <NavDropdown.Item className='dropdown-item' as={Link} to="/transfer">Make A Transfer</NavDropdown.Item>
-                    <NavDropdown.Item className='dropdown-item' as={Link} to="/orderHistory">View Order History</NavDropdown.Item>
+
+                   {isUserAdmin == true &&  <NavDropdown.Item className='dropdown-item' as={Link} to="/createProduct">Create Product</NavDropdown.Item> }
+                    <NavDropdown.Item className='dropdown-item' as={Link} to="/orderHistory">View My Order History</NavDropdown.Item>
                     <NavDropdown.Item className='signin dropdown-item' as={Link} to="/register">Register User/Sign In</NavDropdown.Item>
-                    <NavDropdown.Item className='dropdown-item' as={Link} to="/products">View Products</NavDropdown.Item>
-                    <NavDropdown.Item className='dropdown-item' as={Link} to="/addPromoCode">Create PromoCode</NavDropdown.Item>
+                   {isUserAdmin == true && <NavDropdown.Item className='dropdown-item' as={Link} to="/vendorsOrders">View Products Orders By Buyers</NavDropdown.Item> }
+                    <NavDropdown.Item className='dropdown-item' as={Link} to={`/edituser/${user.id}`} >Edit Profile</NavDropdown.Item>
+
                     </NavDropdown>
                 </div>
             </div>
@@ -108,9 +115,8 @@ export default function Navbar() {
                 <div><BiHelpCircle size={30} /></div>
                 <div className='icons-text'>
                     <NavDropdown title="Help" id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/deposit">Make Deposit</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/products">View Products</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/addPromoCode">Create PromoCode</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/about">About Web Application</NavDropdown.Item>
+                    {/* <NavDropdown.Item as={Link} to="/myProfile">Meet Rowland</NavDropdown.Item> */}
                     </NavDropdown>
                 </div>
 
@@ -134,4 +140,3 @@ export default function Navbar() {
     </div>
   );
 }
-

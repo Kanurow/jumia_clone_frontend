@@ -1,5 +1,5 @@
 .footer {
-  display: block;
+  display: inline-block;
     background-color: #1d1414;
     padding: 20px;
     text-align: center;
@@ -9,6 +9,7 @@
     right: 0px;
     bottom: 0px;
     height: 100px;
+    z-index: 1000;
   }
   
   .footer a {
@@ -16,7 +17,8 @@
     text-decoration: none;
   }
   
-  .footer a:hover {
-    color: #333;
+  .footer p:hover {
+    color: #daa000;
+    font-weight: bold;
   }
   

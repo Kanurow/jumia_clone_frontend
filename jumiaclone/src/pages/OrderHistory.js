@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
+import Footer from '../layout/Footer';
 
-export default function OrderHistory() {
+export default function OrderHistory({ user }) {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState([]);
-
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/users/user/me', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-            windows: 'true',
-          },
-        });
-        setUser(response.data);
-        fetchUserOrders(response.data.id); // Call fetchUserOrders with user.id
+        fetchUserOrders(user.id); 
       } catch (error) {
         setError(error.message);
       }
@@ -78,6 +69,7 @@ export default function OrderHistory() {
           ))}
         </tbody>
       </Table>
+      <Footer />
     </div>
   );
 }

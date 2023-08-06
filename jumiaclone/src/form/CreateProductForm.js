@@ -1,11 +1,10 @@
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import top from './myjumia-top.png';
 import bottom from "./myjumia-bottom-logo.png";
+import Footer from '../layout/Footer';
 
 const CreateProductForm = () => {
 
@@ -20,6 +19,29 @@ const CreateProductForm = () => {
   const [percentageDiscount, setPercentageDiscount] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userResponse = await axios.get(
+            'http://localhost:8080/api/users/user/me',
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                windows: 'true',
+              },
+            }
+          );
+          setUser(userResponse.data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
 
 
@@ -34,6 +56,7 @@ const CreateProductForm = () => {
     formData.append('description', description);
     formData.append('category', category);
     formData.append('imageFile', image);
+    formData.append('userId', user.id);
 
     try {
       const response = await axios.post("http://localhost:8080/api/products/createProduct", formData, {
@@ -197,6 +220,7 @@ const CreateProductForm = () => {
       <img className="jumia-bottom" src={bottom} alt="top" />
 
       </div>
+      <Footer />
 
       </>
   );
