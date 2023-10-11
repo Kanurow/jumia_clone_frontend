@@ -19,9 +19,6 @@ import { BiUserCheck } from 'react-icons/bi';
 
 export default function Home({ allProducts }) {
 
-
-
-
   const [offset, setOffset] = useState(0);
   const [pageSize, setPageSize] = useState(6);
   const [sortBy, setSortBy] = useState('productName');

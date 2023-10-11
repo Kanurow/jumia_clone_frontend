@@ -19,19 +19,25 @@ function CartNotification({ showCartNotification }) {
   );
 }
 
-function ProductsCarousel({ user }) {
+function ProductsCarousel() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [user, setUser] = useState([]);
   const [showCartNotification, setShowCartNotification] = useState(false);
-  
-
-
-  
 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+
+        const userResponse = await axios.get('http://localhost:8080/api/users/user/me', {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            windows: 'true',
+          },
+        });
+        setUser(userResponse.data);
 
 
         const productsResponse = await axios.get(
@@ -56,6 +62,7 @@ function ProductsCarousel({ user }) {
 
   const addToCart = async (productId) => {
     try {
+      console.log("in product carousel : " + productId)
       const response = await axios.post(
         `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
         null,
@@ -67,6 +74,7 @@ function ProductsCarousel({ user }) {
           },
         }
       );
+      console.log("LL")
 
       setProducts((prevProducts) =>
       prevProducts.map((product) => {
@@ -132,23 +140,17 @@ function ProductsCarousel({ user }) {
             />
           </Link>
       </div>
-      
       <h3 className='product-name'>{product.productName}</h3>
       <p className="price"> #{ product.sellingPrice}    <span className="original-prize"> #{ product.sellingPrice + product.amountDiscounted}</span></p>
-
-
-
               <button
                 className='btn mx-2'
                 onClick={() => addToCart(product.id)}
               >
                 Add to Cart
               </button>
-
-
-
     </div>
   ))}
+  
 </Carousel>
 
     </div>

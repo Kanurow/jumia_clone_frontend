@@ -28,6 +28,8 @@ import VendorsProducts from './pages/VendorsProducts';
 import VendorsList from './pages/VendorsList';
 import EditUser from './pages/EditUser';
 import VendorsOrders from './pages/VendorsOrders';
+import Logout from './form/Logout';
+import About from './pages/About';
 
 function App() {
 
@@ -78,9 +80,10 @@ function App() {
         
         <Routes>
           <Route exact path="/" element={<Home allProducts={allProducts} />} />
-          <Route  element={<ProductsCarousel user={user}  />} />
+          <Route  element={<ProductsCarousel />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Signin />} />
+          <Route exact path="/loggedOut" element={<Logout />} />
           <Route exact path="/createProduct" element={<CreateProductForm />} />
           <Route exact path='/phonesAndTablets' element={<PhonesAndTablets />}></Route>
           <Route exact path="/computing" element={<Computing />} />
@@ -100,6 +103,7 @@ function App() {
           <Route exact path='/allVendors' element={<VendorsList />} />
           <Route exact path='/viewVendor/:id' element={<VendorsProducts />} />
           <Route exact path="/edituser/:id" element={<EditUser />} />
+          <Route exact path='/about' element={<About />} />
 
 
         </Routes>

@@ -134,7 +134,7 @@ export default function Signin() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (event) => {
+  const  onSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/api/auth/signin', {
@@ -204,8 +204,9 @@ export default function Signin() {
               <p>For further support, you may visit the Help Center or contact our customer service team.</p>
             </form>
           </div>
-        </div>
+        </div> 
         <img className="jumia-bottom" src={bottom} alt="top" />
+
       </div>
       <Footer />
     </>

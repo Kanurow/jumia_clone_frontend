@@ -15,25 +15,6 @@ function Travels() {
   const [error, setError] = useState(null);
   // const [travels, setTravels] = useState([]);
 
-  useEffect(() => {
-    // const fetchTravelProducts = async () => {
-    //   try {
-    //     const response = await axios.get('http://localhost:8080/api/products/travels', {
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-    //         windows: 'true',
-    //       },
-    //     });
-    //     setTravels(response.data);
-    //     console.log(response.data);
-    //   } catch (error) {
-    //     setError(error.message);
-    //   }
-    // };
-  
-    // fetchTravelProducts();
-  }, []);
 
 
   return (

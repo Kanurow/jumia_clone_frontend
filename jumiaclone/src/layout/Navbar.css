@@ -34,6 +34,9 @@
     background-color:#f8f8f8;
     z-index: 1000;
   }
+  .d-flex {
+    width: 350px;
+  }
 
   .logo-image {
     height: 40px; 
