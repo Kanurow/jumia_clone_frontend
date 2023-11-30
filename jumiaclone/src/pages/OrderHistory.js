@@ -21,7 +21,7 @@ export default function OrderHistory({ user }) {
 
   const fetchUserOrders = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/products/orderHistory/${userId}`, {
+      const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/products/orderHistory/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

@@ -16,7 +16,7 @@ function Supermarket() {
   useEffect(() => {
     const fetchSupermarketProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/products/supermarket', {
+        const response = await axios.get('https://jumia-clone-bra6.onrender.com/api/products/supermarket', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

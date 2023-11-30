@@ -28,7 +28,7 @@ function QueryCarousel({ query }) {
     const fetchData = async () => {
       try {
 
-        const response = await axios.get('http://localhost:8080/api/users/user/me', {
+        const response = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -37,7 +37,7 @@ function QueryCarousel({ query }) {
         });
         setUser(response.data);
 
-        const productsResponse = await axios.get('http://localhost:8080/api/products/all', {
+        const productsResponse = await axios.get('https://jumia-clone-bra6.onrender.com/api/products/all', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -62,7 +62,7 @@ function QueryCarousel({ query }) {
   const addToCart = async (productId) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
+        `https://jumia-clone-bra6.onrender.com/api/products/addtocart/${productId}/${user.id}`,
         null,
         {
           headers: {

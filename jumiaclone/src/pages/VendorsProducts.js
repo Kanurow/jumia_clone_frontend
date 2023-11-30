@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../layout/Footer';
-
 import "./VendorsProducts.css";
-import ProductsCarousel from './ProductsCarousel';
 
 function CartNotification({ showCartNotification }) {
   return (
@@ -31,7 +29,7 @@ function VendorsProducts() {
       const vendorProducts = async () => {
         try {
 
-          const userResponse = await axios.get('http://localhost:8080/api/users/user/me', {
+          const userResponse = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
             headers: {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -40,7 +38,7 @@ function VendorsProducts() {
           });
           setUser(userResponse.data);
 
-          const response = await axios.get(`http://localhost:8080/api/products/vendor/${id}`, {
+          const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/products/vendor/${id}`, {
             headers: {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -62,7 +60,7 @@ function VendorsProducts() {
     const addToCart = async (productId) => {
       try {
         const response = await axios.post(
-          `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
+          `https://jumia-clone-bra6.onrender.com/api/products/addtocart/${productId}/${user.id}`,
           null,
           {
             headers: {
@@ -94,34 +92,7 @@ function VendorsProducts() {
   return (
     <div>
       <div className='container mt-4'>
-      
-        {/* <div  class="product-grid">
-        {products.map((product) => (
-          <div key={product.id}>
-            <div>
-              <div className='single-product card'>
-                <Link to={`/viewProduct/${product.id}`}>
-                    <img className='product--image' src={product.productName} alt='product image' />
-                </Link>
-                <div>{product.percentageDiscount}</div>
-                {product.amountDiscounted}
-              </div>
-                
-            </div>
-            
-          </div>
-
-          
-          ))}
-        </div> */}
-
-
-
-
-
-
-
-        <CartNotification showCartNotification={showCartNotification} />
+              <CartNotification showCartNotification={showCartNotification} />
         <div className='product-grid'>
           
             {products.map((product) => (

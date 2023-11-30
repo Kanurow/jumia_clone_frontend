@@ -137,7 +137,7 @@ export default function Signin() {
   const  onSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/signin', {
+      const response = await axios.post('https://jumia-clone-bra6.onrender.com/api/auth/signin', {
         usernameOrEmail,
         password,
       });

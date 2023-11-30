@@ -12,7 +12,7 @@ function VendorsList() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const vendorsResponse = await axios.get('http://localhost:8080/api/users/getVendors', {
+            const vendorsResponse = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/getVendors', {
               headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -51,8 +51,6 @@ function VendorsList() {
                     )}
 
                 
-                                                
-                    
                     <div class="vendor-info-grid">
                     {vendor.companyLogoUrl === "" ? (
 

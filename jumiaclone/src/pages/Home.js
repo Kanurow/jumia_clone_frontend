@@ -31,7 +31,7 @@ export default function Home({ allProducts }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get('http://localhost:8080/api/users/user/me', {
+        const userResponse = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -41,7 +41,7 @@ export default function Home({ allProducts }) {
         setUser(userResponse.data);
 
         const productsResponse = await axios.get(
-          `http://localhost:8080/api/products/paged/${offset}/${pageSize}/${sortBy}`,
+          `https://jumia-clone-bra6.onrender.com/api/products/paged/${offset}/${pageSize}/${sortBy}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function Home({ allProducts }) {
   const addToCart = async (productId) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
+        `https://jumia-clone-bra6.onrender.com/api/products/addtocart/${productId}/${user.id}`,
         null,
         {
           headers: {

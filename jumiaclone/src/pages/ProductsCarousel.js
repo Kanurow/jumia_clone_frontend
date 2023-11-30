@@ -30,7 +30,7 @@ function ProductsCarousel() {
     const fetchData = async () => {
       try {
 
-        const userResponse = await axios.get('http://localhost:8080/api/users/user/me', {
+        const userResponse = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -41,7 +41,7 @@ function ProductsCarousel() {
 
 
         const productsResponse = await axios.get(
-          'http://localhost:8080/api/products/all',
+          'https://jumia-clone-bra6.onrender.com/api/products/all',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function ProductsCarousel() {
     try {
       console.log("in product carousel : " + productId)
       const response = await axios.post(
-        `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
+        `https://jumia-clone-bra6.onrender.com/api/products/addtocart/${productId}/${user.id}`,
         null,
         {
           headers: {
@@ -74,7 +74,6 @@ function ProductsCarousel() {
           },
         }
       );
-      console.log("LL")
 
       setProducts((prevProducts) =>
       prevProducts.map((product) => {

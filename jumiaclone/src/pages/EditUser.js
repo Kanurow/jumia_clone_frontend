@@ -7,18 +7,9 @@ export default function EditUser() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const [user, setUser] = useState([]);
-    const [phone, setPhone] = useState('');
 
     const {id} = useParams()
 
-
-    const [newFirstName, setNewFirstName] = useState('');
-    const [newLastName, setNewLastName] = useState('');
-    const [newUsername, setNewUsername] = useState('');
-    const [newEmail, setNewEmail] = useState('');
-    const [newMobile, setNewMobile] = useState('');
-    const [newTerritory, setNewTerritory] = useState('');
-    const [newVendorCompany, setNewVendorCompany] = useState('');
     const [vendorsProfilePicture, setVendorsProfilePicture] = useState(null);
     const [vendorsCompanyLogo, setVendorsCompanyLogo] = useState(null);
 
@@ -27,7 +18,7 @@ export default function EditUser() {
     useEffect(() => {
     const fetchUser = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/users/${id}`, {
+          const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/users/${id}`, {
 
             headers: {
               'Content-Type': 'application/json',
@@ -66,7 +57,7 @@ export default function EditUser() {
       formData.append('userId', user.id);
   
       try {
-        const response = await axios.put("http://localhost:8080/api/users/updateUserInformation", formData, {
+        const response = await axios.put("https://jumia-clone-bra6.onrender.com/api/users/updateUserInformation", formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -93,7 +84,7 @@ export default function EditUser() {
       formData.append('userId', user.id);
   
       try {
-        const response = await axios.put("http://localhost:8080/api/users/updateUserInformation", formData, {
+        const response = await axios.put("https://jumia-clone-bra6.onrender.com/api/users/updateUserInformation", formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -108,9 +99,7 @@ export default function EditUser() {
       }
     }
 
-    
-
-
+  
 
   };
 

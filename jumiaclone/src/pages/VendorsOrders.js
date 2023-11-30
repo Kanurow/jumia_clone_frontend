@@ -14,7 +14,7 @@ useEffect(() => {
         const fetchProduct = async () => {
           try {
             const userResponse = await axios.get(
-                'http://localhost:8080/api/users/user/me',
+                'https://jumia-clone-bra6.onrender.com/api/users/user/me',
                 {
                   headers: {
                     'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ useEffect(() => {
                 }
               );
               setUser(userResponse.data);
-            const response = await axios.get(`http://localhost:8080/api/products/vendors/productsOrdered/${userResponse.data.id}`, {
+            const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/products/vendors/productsOrdered/${userResponse.data.id}`, {
               headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -88,59 +88,3 @@ useEffect(() => {
 }
 
 export default VendorsOrders
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-// function VendorsOrders() {
-//   const [product, setProduct] = useState([]);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchProduct = async () => {
-//       try {
-//         const userResponse = await axios.get(
-//           'http://localhost:8080/api/users/user/me',
-//           {
-//             headers: {
-//               'Content-Type': 'application/json',
-//               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-//               windows: 'true',
-//             },
-//           }
-//         );
-
-//         const response = await axios.get(
-//           `http://localhost:8080/api/products/vendors/productsOrdered/${userResponse.data.id}`,
-//           {
-//             headers: {
-//               'Content-Type': 'application/json',
-//               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-//               windows: 'true',
-//             },
-//           }
-//         );
-
-//         setProduct(response.data);
-//       } catch (error) {
-//         setError(error.message);
-//       }
-//     };
-
-//     fetchProduct();
-//   }, []);
-//   console.log(product);
-
-//   return (
-//     <div>
-//       {/* Display the data fetched from the API */}
-//       {/* {product.map((item) => (
-//         <div key={item.productId}>{item.productName}</div>
-//       ))} */}
-//     </div>
-//   );
-// }
-
-// export default VendorsOrders;

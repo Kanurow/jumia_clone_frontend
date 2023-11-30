@@ -25,7 +25,7 @@ const CreateProductForm = () => {
     const fetchUser = async () => {
       try {
         const userResponse = await axios.get(
-            'http://localhost:8080/api/users/user/me',
+            'https://jumia-clone-bra6.onrender.com/api/users/user/me',
             {
               headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const CreateProductForm = () => {
     formData.append('userId', user.id);
 
     try {
-      const response = await axios.post("http://localhost:8080/api/products/createProduct", formData, {
+      const response = await axios.post("https://jumia-clone-bra6.onrender.com/api/products/createProduct", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,

@@ -18,7 +18,7 @@ function ShoppingCart() {
     const fetchUser = async () => {
       try {
 
-        const response = await axios.get('http://localhost:8080/api/users/user/me', {
+        const response = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -36,7 +36,7 @@ function ShoppingCart() {
 
   const fetchUserShoppingCart = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/products/cart/${userId}`, {
+      const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/products/cart/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -58,7 +58,7 @@ function ShoppingCart() {
   const removeItem = async (id) => {
     const accessToken = localStorage.getItem('accessToken');
     try {
-      await axios.delete(`http://localhost:8080/api/products/removefromcart/${id}`, {
+      await axios.delete(`https://jumia-clone-bra6.onrender.com/api/products/removefromcart/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${accessToken}`,

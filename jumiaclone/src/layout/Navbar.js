@@ -21,7 +21,7 @@ export default function Navbar() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/users/user/me', {
+        const response = await axios.get('https://jumia-clone-bra6.onrender.com/api/users/user/me', {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -48,7 +48,7 @@ export default function Navbar() {
 
   const fetchUserShoppingCart = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/products/cart/${userId}`, {
+      const response = await axios.get(`https://jumia-clone-bra6.onrender.com/api/products/cart/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -68,8 +68,6 @@ export default function Navbar() {
 
 
 
-
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark ">
@@ -78,9 +76,8 @@ export default function Navbar() {
           <img className="logo-image" src={logo} alt="Logo" /> 
         </Link>
 
-          <div className="d-flex justify-content-center align-items-center with-tooltip" data-tooltip="Please fill out this form">
+          <div className="d-flex justify-content-center align-items-center with-tooltip" data-tooltip="Enter product you wish to find">
           <form className="d-flex ">
-
               <input
                 className="form-control me-2"
                 type="search"

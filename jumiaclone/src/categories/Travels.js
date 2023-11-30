@@ -13,9 +13,6 @@ import TravelsCarousel from './TravelsCarousel';
 function Travels() {
 
   const [error, setError] = useState(null);
-  // const [travels, setTravels] = useState([]);
-
-
 
   return (
     <>

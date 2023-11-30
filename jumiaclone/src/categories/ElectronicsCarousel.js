@@ -28,7 +28,7 @@ function ElectronicsCarousel() {
     const fetchData = async () => {
       try {
         const userResponse = await axios.get(
-          'http://localhost:8080/api/users/user/me',
+          'https://jumia-clone-bra6.onrender.com/api/users/user/me',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function ElectronicsCarousel() {
         setUser(userResponse.data);
 
         const productsResponse = await axios.get(
-          'http://localhost:8080/api/products/electronics',
+          'https://jumia-clone-bra6.onrender.com/api/products/electronics',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ function ElectronicsCarousel() {
   const addToCart = async (productId) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/products/addtocart/${productId}/${user.id}`,
+        `https://jumia-clone-bra6.onrender.com/api/products/addtocart/${productId}/${user.id}`,
         null,
         {
           headers: {

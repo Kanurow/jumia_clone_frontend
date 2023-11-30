@@ -39,8 +39,6 @@ export default function Register() {
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
-    console.log(user);
-    console.log(phone)
 
     const onSubmit =async (e) => {
         e.preventDefault();
@@ -58,7 +56,7 @@ export default function Register() {
         }
 
         try {
-            await axios.post("http://localhost:8080/api/auth/signup", userData);
+            await axios.post("https://jumia-clone-bra6.onrender.com/api/auth/signup", userData);
             navigate("/login");
         } catch (error) {
             setError(error.message);
